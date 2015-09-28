@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.2
-Release  : 4
+Release  : 5
 URL      : https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.2.tar.gz
 Source0  : https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.2.tar.gz
 Summary  : Python implementation of Markdown.
