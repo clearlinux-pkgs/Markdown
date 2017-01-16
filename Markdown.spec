@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.6
-Release  : 16
+Release  : 17
 URL      : https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.6.tar.gz
 Source0  : https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.6.tar.gz
 Summary  : Python implementation of Markdown.
@@ -51,6 +51,8 @@ python components for the Markdown package.
 %setup -q -n Markdown-2.6.6
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484552969
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -60,9 +62,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 run-tests.py
 %install
+export SOURCE_DATE_EPOCH=1484552969
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
