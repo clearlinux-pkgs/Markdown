@@ -1,5 +1,5 @@
 PKG_NAME := Markdown
-URL := https://pypi.python.org/packages/source/M/Markdown/Markdown-2.6.6.tar.gz
+URL := http://pypi.debian.net/Markdown/Markdown-2.6.8.tar.gz
 
 
 include ../common/Makefile.common
