@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.9
-Release  : 22
+Release  : 23
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.9.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.9.tar.gz
 Summary  : Python implementation of Markdown.
@@ -62,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505005717
+export SOURCE_DATE_EPOCH=1505415523
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -72,7 +72,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 run-tests.py
 %install
-export SOURCE_DATE_EPOCH=1505005717
+export SOURCE_DATE_EPOCH=1505415523
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
