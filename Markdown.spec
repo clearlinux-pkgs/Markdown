@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.10
-Release  : 28
+Release  : 29
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.10.zip
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.10.zip
 Summary  : Python implementation of Markdown.
