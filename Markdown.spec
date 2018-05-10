@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.11
-Release  : 31
+Release  : 32
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Summary  : Python implementation of Markdown.
