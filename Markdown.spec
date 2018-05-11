@@ -4,18 +4,19 @@
 #
 Name     : Markdown
 Version  : 2.6.11
-Release  : 32
+Release  : 33
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Summary  : Python implementation of Markdown.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: Markdown-bin
-Requires: Markdown-legacypython
 Requires: Markdown-python3
 Requires: Markdown-python
 BuildRequires : PyYAML
+BuildRequires : PyYAML-legacypython
 BuildRequires : nose
+BuildRequires : nose-legacypython
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
@@ -49,7 +50,6 @@ legacypython components for the Markdown package.
 %package python
 Summary: python components for the Markdown package.
 Group: Default
-Requires: Markdown-legacypython
 Requires: Markdown-python3
 Provides: markdown-python
 
@@ -74,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1515171132
+export SOURCE_DATE_EPOCH=1526001909
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -84,7 +84,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 run-tests.py
 %install
-export SOURCE_DATE_EPOCH=1515171132
+export SOURCE_DATE_EPOCH=1526001909
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
