@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.11
-Release  : 38
+Release  : 39
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Summary  : Python implementation of Markdown.
@@ -12,6 +12,7 @@ Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: Markdown-bin
 Requires: Markdown-python3
+Requires: Markdown-license
 Requires: Markdown-python
 BuildRequires : PyYAML
 BuildRequires : PyYAML-legacypython
@@ -19,9 +20,11 @@ BuildRequires : nose
 BuildRequires : nose-legacypython
 BuildRequires : pbr
 BuildRequires : pip
-
+BuildRequires : python-core
+BuildRequires : python3-core
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 
 %description
 This is a Python implementation of John Gruber's Markdown_.
@@ -33,6 +36,7 @@ This is a Python implementation of John Gruber's Markdown_.
 %package bin
 Summary: bin components for the Markdown package.
 Group: Binaries
+Requires: Markdown-license
 
 %description bin
 bin components for the Markdown package.
@@ -45,6 +49,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the Markdown package.
+
+
+%package license
+Summary: license components for the Markdown package.
+Group: Default
+
+%description license
+license components for the Markdown package.
 
 
 %package python
@@ -74,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526001909
+export SOURCE_DATE_EPOCH=1530372924
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -84,8 +96,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python2 run-tests.py
 %install
-export SOURCE_DATE_EPOCH=1526001909
+export SOURCE_DATE_EPOCH=1530372924
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/Markdown
+cp LICENSE.md %{buildroot}/usr/share/doc/Markdown/LICENSE.md
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -102,6 +116,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/Markdown/LICENSE.md
 
 %files python
 %defattr(-,root,root,-)
