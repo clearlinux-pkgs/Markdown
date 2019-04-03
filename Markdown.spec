@@ -4,51 +4,39 @@
 #
 Name     : Markdown
 Version  : 2.6.11
-Release  : 45
+Release  : 46
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
-Summary  : Python implementation of Markdown.
+Summary  : A Markdown implementation written in C
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: Markdown-bin
-Requires: Markdown-python3
-Requires: Markdown-license
-Requires: Markdown-python
+Requires: Markdown-bin = %{version}-%{release}
+Requires: Markdown-license = %{version}-%{release}
+Requires: Markdown-python = %{version}-%{release}
+Requires: Markdown-python3 = %{version}-%{release}
 BuildRequires : PyYAML
-BuildRequires : PyYAML-legacypython
+BuildRequires : buildreq-distutils3
+BuildRequires : deprecated-PyYAML-legacypython
+BuildRequires : deprecated-nose-legacypython
 BuildRequires : nose
-BuildRequires : nose-legacypython
-BuildRequires : pbr
-BuildRequires : pip
-BuildRequires : python-core
-BuildRequires : python3-core
-BuildRequires : python3-dev
-BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
 
 %description
-This is a Python implementation of John Gruber's Markdown_.
-        It is almost completely compliant with the reference implementation,
-        though there are a few known issues. See Features_ for information
-        on what exactly is supported and what is not. Additional features are
-        supported by the `Available Extensions`_.
+[Python-Markdown][]
+===================
+[![Build Status][travis-button]][travis]
+[![Coverage Status][codecov-button]][codecov]
+[![Latest Version][mdversion-button]][md-pypi]
+[![Python Versions][pyversion-button]][md-pypi]
+[![BSD License][bsdlicense-button]][bsdlicense]
+[![Code of Conduct][codeofconduct-button]][Code of Conduct]
 
 %package bin
 Summary: bin components for the Markdown package.
 Group: Binaries
-Requires: Markdown-license
+Requires: Markdown-license = %{version}-%{release}
 
 %description bin
 bin components for the Markdown package.
-
-
-%package legacypython
-Summary: legacypython components for the Markdown package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the Markdown package.
 
 
 %package license
@@ -62,7 +50,7 @@ license components for the Markdown package.
 %package python
 Summary: python components for the Markdown package.
 Group: Default
-Requires: Markdown-python3
+Requires: Markdown-python3 = %{version}-%{release}
 Provides: markdown-python
 
 %description python
@@ -86,22 +74,16 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1530372924
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554335632
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-python2 run-tests.py
 %install
-export SOURCE_DATE_EPOCH=1530372924
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/Markdown
-cp LICENSE.md %{buildroot}/usr/share/doc/Markdown/LICENSE.md
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+mkdir -p %{buildroot}/usr/share/package-licenses/Markdown
+cp LICENSE.md %{buildroot}/usr/share/package-licenses/Markdown/LICENSE.md
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -113,13 +95,9 @@ echo ----[ mark ]----
 %defattr(-,root,root,-)
 /usr/bin/markdown_py
 
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
-
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/Markdown/LICENSE.md
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/Markdown/LICENSE.md
 
 %files python
 %defattr(-,root,root,-)
