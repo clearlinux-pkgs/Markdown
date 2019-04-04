@@ -2,5 +2,3 @@
 # picked up automatically. One name per line, no whitespace.
 nose
 PyYAML
-deprecated-nose-legacypython
-deprecated-PyYAML-legacypython

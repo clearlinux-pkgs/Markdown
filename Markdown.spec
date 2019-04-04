@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 2.6.11
-Release  : 46
+Release  : 47
 URL      : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Source0  : http://pypi.debian.net/Markdown/Markdown-2.6.11.tar.gz
 Summary  : A Markdown implementation written in C
@@ -16,8 +16,6 @@ Requires: Markdown-python = %{version}-%{release}
 Requires: Markdown-python3 = %{version}-%{release}
 BuildRequires : PyYAML
 BuildRequires : buildreq-distutils3
-BuildRequires : deprecated-PyYAML-legacypython
-BuildRequires : deprecated-nose-legacypython
 BuildRequires : nose
 
 %description
@@ -74,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554335632
+export SOURCE_DATE_EPOCH=1554340318
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
