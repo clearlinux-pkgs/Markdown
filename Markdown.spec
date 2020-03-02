@@ -4,7 +4,7 @@
 #
 Name     : Markdown
 Version  : 3.2.1
-Release  : 56
+Release  : 57
 URL      : https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz
 Summary  : A Markdown implementation written in C
@@ -61,6 +61,7 @@ python components for the Markdown package.
 Summary: python3 components for the Markdown package.
 Group: Default
 Requires: python3-core
+Provides: pypi(Markdown)
 
 %description python3
 python3 components for the Markdown package.
@@ -75,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581561001
+export SOURCE_DATE_EPOCH=1583173040
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
