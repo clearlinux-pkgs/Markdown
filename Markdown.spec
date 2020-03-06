@@ -4,10 +4,10 @@
 #
 Name     : Markdown
 Version  : 3.2.1
-Release  : 57
+Release  : 58
 URL      : https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz
-Summary  : A Markdown implementation written in C
+Summary  : Python implementation of Markdown.
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: Markdown-bin = %{version}-%{release}
@@ -21,14 +21,11 @@ BuildRequires : nose
 BuildRequires : setuptools
 
 %description
-[Python-Markdown][]
-===================
-[![Build Status][travis-button]][travis]
-[![Coverage Status][codecov-button]][codecov]
-[![Latest Version][mdversion-button]][md-pypi]
-[![Python Versions][pyversion-button]][md-pypi]
-[![BSD License][bsdlicense-button]][bsdlicense]
-[![Code of Conduct][codeofconduct-button]][Code of Conduct]
+This is a Python implementation of John Gruber's Markdown_.
+        It is almost completely compliant with the reference implementation,
+        though there are a few known issues. See Features_ for information
+        on what exactly is supported and what is not. Additional features are
+        supported by the `Available Extensions`_.
 
 %package bin
 Summary: bin components for the Markdown package.
@@ -61,7 +58,8 @@ python components for the Markdown package.
 Summary: python3 components for the Markdown package.
 Group: Default
 Requires: python3-core
-Provides: pypi(Markdown)
+Provides: pypi(markdown)
+Requires: pypi(setuptools)
 
 %description python3
 python3 components for the Markdown package.
@@ -76,8 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583173040
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583519716
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
