@@ -1,5 +1,5 @@
 PKG_NAME := Markdown
-URL = https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz
+URL = https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
