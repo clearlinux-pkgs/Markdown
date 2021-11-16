@@ -1,8 +1,6 @@
 # This file contains recursive sources that require this package
 Cheetah3
-Keras
 ceph
 cgit
 gobject-introspection
 samba
-tensorboard
